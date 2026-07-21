@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 // import heroImg from '../../assets/heroImg.jpeg'
-import dashboardImg from '../../assets/dashboard.jpg'
+import dashboardImg from '../../assets/dashboard.webp'
 import { Astroid, Calendars, CircleStar, MapPinned, MoveRight, Music, ShieldHalf, TicketPlusIcon, Users, UsersRound 
 } from 'lucide-react'
 import gsap from 'gsap'
