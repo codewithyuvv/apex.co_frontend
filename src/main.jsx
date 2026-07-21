@@ -14,12 +14,10 @@ import AuthProvider from './components/Global/AuthProvider.jsx'
 //   });
 
 createRoot(document.getElementById('root')).render(
-<StrictMode>
      <BrowserRouter>
         <AuthProvider>
             <App />
         </AuthProvider>
       </BrowserRouter>
-</StrictMode>
 
 )
