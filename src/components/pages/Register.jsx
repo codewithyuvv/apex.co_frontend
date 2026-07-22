@@ -1,13 +1,15 @@
 import axios from 'axios'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import * as Yup from "yup"
 import Back from '../Global/Back'
 import { useNavigate } from 'react-router-dom'
+import Spinner from '../../assets/Spinner'
 
 const Register = () => {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
 
   const errorSchema = Yup.object({
     name: Yup.string()
@@ -89,13 +91,16 @@ const Register = () => {
           }}
           onSubmit={async (values, {setSubmitting, resetForm}) => {
            try {
+             setLoading(true)
             const { confirmPassword, ...userData } = values
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/register`, userData, {withCredentials: true})
             if(response){
               toast.success(response.data.message || "Registered successfuly")
                navigate('/login')
+               setLoading(false)
             } else {
               toast.error(response.data.message || "Registration incomplete")
+              setLoading(false)
             }
             
            } catch (error) {
@@ -103,6 +108,7 @@ const Register = () => {
              toast.error("Internal Server error")
            }
             setSubmitting(false)
+            setLoading(false)
             resetForm()
           }}
         >
@@ -193,9 +199,11 @@ const Register = () => {
 
               <button 
                 type="submit"
-                className='mt-4 w-full bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold rounded-xl py-3 shadow-lg shadow-indigo-950/50 transition-all active:scale-[0.98]'
+                className={`mt-4 w-full bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 flex items-center justify-center text-white font-semibold rounded-xl py-3 shadow-lg shadow-indigo-950/50 transition-all active:scale-[0.98]
+                    ${loading? "disabled:backdrop-opacity-60 bg-zinc-600" : "bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500"}
+                  `}
               >
-                Register Account
+               {<Spinner size='md'/> || "Register Account"}
               </button>
             </Form>
           )}

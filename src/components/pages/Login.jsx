@@ -167,6 +167,7 @@ import * as Yup from "yup"
 import { useNavigate } from 'react-router-dom'
 import { authContext } from '../Global/AuthProvider'
 import toast from 'react-hot-toast'
+import Spinner from '../../assets/Spinner'
 const Login = () => {
    const {setUser} = useContext(authContext)
   const navigate = useNavigate()
@@ -302,11 +303,11 @@ const Login = () => {
                type='submit'
                disabled={isSubmitting}
               //  onClick={() => {navigate('/')}}
-               className={`rounded-2xl py-2 animate-pulse ${
-                isSubmitting? 'bg-zinc-700 cursor-not-allowed opacity-70 rounded-3xl transform transition-all' : 'bg-violet-950 cursor-pointer hover:bg-violet-900 rounded-3xl transform transition-all'
+               className={` py-2 rounded-3xl transform transition-all bg-violet-950 cursor-pointer ${
+                isSubmitting? 'bg-zinc-700 cursor-not-allowed opacity-80 ' : 'bg-violet-950 hover:bg-violet-900 rounded-3xl'
                }`}
              >
-                   login
+                   {<Spinner size='sm'/> || "login"}
              </button>
  
            </Form>
