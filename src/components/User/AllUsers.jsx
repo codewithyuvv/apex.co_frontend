@@ -12,7 +12,7 @@ const AllUsers = () => {
     useEffect( () => {
        const getAllUsers = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/api/user/users`, {withCredentials: true})
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/users`, {withCredentials: true})
              setUsers(res?.data?.users)
           } catch (error) {
             console.log("ERROR: ",error)
@@ -25,7 +25,7 @@ const AllUsers = () => {
     // const getKYCform = async (userId) => {
     //     try {
     //       // navigate(`/admin-panel/kyc/${userId}`)
-    //         const res = await axios.get(`http://localhost:3000/api/user/admin-panel/kyc/${userId}`, {withCredentials: true})
+    //         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/admin-panel/kyc/${userId}`, {withCredentials: true})
     //          if(res){
     //            toast.success(res?.data?.message)
     //          } else {

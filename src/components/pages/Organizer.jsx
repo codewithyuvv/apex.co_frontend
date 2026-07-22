@@ -86,7 +86,7 @@ const Organizer = () => {
           onSubmit={async (values, {setSubmitting, resetForm}) => {
            try {
             const { confirmPassword, ...userData } = values
-            const response = await axios.post("http://localhost:3000/api/user/register", userData, {withCredentials: true})
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/register`, userData, {withCredentials: true})
             if(response){
               toast.success(response.data.message || "Registered successfuly")
               navigate('/login')

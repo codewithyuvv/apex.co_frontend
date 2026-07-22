@@ -95,7 +95,7 @@ function KYCvalidation() {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/user/admin-panel/kyc/${userId}`,
+          `${import.meta.env.VITE_API_URL}/api/user/admin-panel/kyc/${userId}`,
           { withCredentials: true }
         );
         setKyc(res?.data?.kyc || res?.data || null);
@@ -114,7 +114,7 @@ function KYCvalidation() {
     setSubmitting(true);
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/user/admin-panel/kyc/${userId}/approve`,
+        `${import.meta.env.VITE_API_URL}/api/user/admin-panel/kyc/${userId}/approve`,
         {status: "APPROVED"},
         { withCredentials: true }
       );
@@ -136,7 +136,7 @@ function KYCvalidation() {
     setSubmitting(true);
     try {
       const res = await axios.patch(
-        `http://localhost:3000/api/user/admin-panel/kyc/${userId}/reject`,
+        `${import.meta.env.VITE_API_URL}/api/user/admin-panel/kyc/${userId}/reject`,
         { rejectionReason },
         {status: "REJECTED"},
         { withCredentials: true }

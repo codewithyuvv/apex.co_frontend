@@ -27,7 +27,7 @@ const DashboardOrganizer = () => {
     const deleteEvent = async (eventId) => {    
         if(!window.confirm("Are you sure, you want to delete this event")) return
           try {
-            const res = await axios.delete(`http://localhost:3000/api/event/events/${eventId}`, {
+            const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/event/events/${eventId}`, {
               withCredentials: true
             })
     
@@ -48,7 +48,7 @@ const DashboardOrganizer = () => {
     
       useEffect(() => {
         const getEvents = async () => {
-          const res = await axios.get(`http://localhost:3000/api/event/my-events`, {withCredentials: true})
+          const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/my-events`, {withCredentials: true})
            setEvent(res.data.myEvents)
         }
         getEvents()
@@ -56,7 +56,7 @@ const DashboardOrganizer = () => {
     
       // useEffect(() => {
       //   const getAllUsers = async () => {
-      //     const res = await axios.get(`http://localhost:3000/api/user/users`)
+      //     const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/users`)
       //       setUsers(res.data.users)
       //      ('Event', res.data)
       //   }

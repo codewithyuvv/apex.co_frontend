@@ -15,7 +15,7 @@ const Applications = () => {
         try {
             setLoading(true)
 
-            const res = await axios.get(`http://localhost:3000/api/event/events/applications/${eventId}`,
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/events/applications/${eventId}`,
                 { withCredentials: true })
 
                 console.log("DATA: ",res.data.getApplicants[0])
@@ -32,7 +32,7 @@ const Applications = () => {
     const updateStatus = async (applicationId, status) => {
         try {
             setLoading(true)
-            const res = await axios.patch(`http://localhost:3000/api/event/all-applications/${applicationId}`, { status }, {
+            const res = await axios.patch(`${import.meta.env.VITE_API_URL}/api/event/all-applications/${applicationId}`, { status }, {
                 withCredentials: true
             })
             console.log(res.data)

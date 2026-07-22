@@ -75,7 +75,7 @@ const validationSchema = Yup.object({
                    formData.append("aadharFront", values.aadhaarFront); // File object
                    formData.append("aadharBack", values.aadhaarBack);
 
-                  const res = await axios.post(`http://localhost:3000/api/user/kyc`, formData, {withCredentials: true})
+                  const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/kyc`, formData, {withCredentials: true})
                     if(res){
 
                       toast.success(res?.data?.message || "Form Submitted")

@@ -16,7 +16,7 @@ const Attendance = () => {
         try {
             setLoading(true)
 
-            const res = await axios.get(`http://localhost:3000/api/event/${eventId}/attendance`, {withCredentials: true})
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/${eventId}/attendance`, {withCredentials: true})
              setApprovedVolt(res?.data?.approvedVolunteers)
 
              setLoading(false)
@@ -35,7 +35,7 @@ const Attendance = () => {
     const setAtendance = async (applicantId, attendance) => {
        setLoading(true)
       try {
-         const res = await axios.patch(`http://localhost:3000/api/event/attendance/${applicantId}`, {attendance}, {withCredentials: true})
+         const res = await axios.patch(`${import.meta.env.VITE_API_URL}/api/event/attendance/${applicantId}`, {attendance}, {withCredentials: true})
          toast.success(res?.data?.message || "marked Present")
           
       } catch (error) {

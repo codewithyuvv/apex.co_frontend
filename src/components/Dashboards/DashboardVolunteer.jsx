@@ -21,7 +21,7 @@ const DashboardVolunteer = () => {
     //             try { 
     //                 setLoading(true)
     
-    //                 const res = await axios.get("http://localhost:3000/api/event/my-applications", {withCredentials: true})
+    //                 const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/my-applications`, {withCredentials: true})
     //                 console.log(res.data)
     //                 setAppliedEvents(res.data.applicationsOfVolunteer)
     
@@ -51,7 +51,7 @@ const DashboardVolunteer = () => {
 
     useEffect(() => {
        const getStats = async () => {
-        const stats = await axios.get("http://localhost:3000/api/user/stats", {withCredentials: true})
+        const stats = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/stats`, {withCredentials: true})
          setStats(stats?.data)
        }
        getStats()

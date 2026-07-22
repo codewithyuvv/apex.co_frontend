@@ -28,7 +28,7 @@ const UserConfig = () => {
       const formData = new FormData()
       formData.append("profile", file)
 
-      const res = await fetch("http://localhost:3000/api/user/profile", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/profile`, {
         credentials: "include",
         method: "POST",
         body: formData,

@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
 
    const verifyUserSession = async () => {
      try {
-       const response = await axios.get("http://localhost:3000/api/user/verify")
+       const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/verify`)
        if(response.data.success){
           setUser(response.data.user)
        }
@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
 
    const logout = async () => {
      try {
-       await axios.post('http://localhost:3000/api/user/logout')
+       await axios.post(`${import.meta.env.VITE_API_URL}/api/user/logout`)
        toast.success("logged Out")
         navigate('/login')
      } catch (error) {

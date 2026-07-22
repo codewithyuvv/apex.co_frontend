@@ -21,7 +21,7 @@ const UpdateEvent = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/event/events/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/events/${id}`);
         const currentEvent = res.data.singleEvent; 
 
        
@@ -59,7 +59,7 @@ const UpdateEvent = () => {
     try {
       // Send PATCH package: target URL containing ID + the object payload payload
       const res = await axios.patch(
-        `http://localhost:3000/api/event/events/${id}`, 
+        `${import.meta.env.VITE_API_URL}/api/event/events/${id}`, 
         editForm,
         { withCredentials: true }
       );

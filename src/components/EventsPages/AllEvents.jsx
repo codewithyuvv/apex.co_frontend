@@ -16,7 +16,7 @@ const AllEvents = () => {
             setSubmittingEventId(event._id)
 
             const res = await axios.post(
-                `http://localhost:3000/api/event/apply/${event._id}`, {},
+                `${import.meta.env.VITE_API_URL}/api/event/apply/${event._id}`, {},
                 { withCredentials: true }
             )
             toast.success(res?.data?.message || "Successfully applied to event")
@@ -31,7 +31,7 @@ const AllEvents = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/event/all-events")
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/all-events`)
                 setEvents(response.data.allEvent)
             } catch (error) {
                 console.log("ERROR: ", error.message)

@@ -15,7 +15,7 @@ const Admin = () => {
   // const deleteUser = async (userId) => {
   //   if (!window.confirm("Are you sure to delete this User")) return
   //   try {
-  //     const res = await axios.delete(`http://localhost:3000/api/user/delete/${userId}`, {
+  //     const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/user/delete/${userId}`, {
   //       withCredentials: true
   //     })
   //     toast.success(res.data.message)
@@ -29,7 +29,7 @@ const Admin = () => {
   useEffect(() => {
     const getEvents = async () => {
       // Admin oversight view — all events across all organizers, read-only
-      const res = await axios.get(`http://localhost:3000/api/event/all-events`, { withCredentials: true })
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/all-events`, { withCredentials: true })
       setEvent(res.data.allEvent)
     }
     getEvents()
@@ -37,7 +37,7 @@ const Admin = () => {
 
   // useEffect(() => {
   //   const getAllUsers = async () => {
-  //     const res = await axios.get(`http://localhost:3000/api/user/users`, { withCredentials: true })
+  //     const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/users`, { withCredentials: true })
   //     setUsers(res?.data?.users)
   //   }
   //   getAllUsers()

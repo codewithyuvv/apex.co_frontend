@@ -69,7 +69,7 @@
 //           }}
 //           onSubmit={ async (values, {setSubmitting, resetForm}) => {
 //              try {
-//               const response = await axios.post('http://localhost:3000/api/user/login', values, {withCredentials: true})
+//               const response = await axios.post('${import.meta.env.VITE_API_URL}/api/user/login', values, {withCredentials: true})
 //                if(response.data?.success && response.data){
 //                  const loggedInUser = response.data?.user
 //                  setUser(loggedInUser)
@@ -233,7 +233,7 @@ const Login = () => {
           onSubmit={ async (values, {setSubmitting, resetForm}) => {
              try {
                     setLoading(true)
-              const response = await axios.post('http://localhost:3000/api/user/login', values, {withCredentials: true})
+              const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, values, {withCredentials: true})
                if(response.data?.success && response.data){
                  const loggedInUser = response.data?.user
                  setUser(loggedInUser)
