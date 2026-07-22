@@ -203,7 +203,7 @@ const Register = () => {
                     ${loading? "disabled:backdrop-opacity-60 bg-zinc-600" : "bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500"}
                   `}
               >
-               {<Spinner size='md'/> || "Register Account"}
+               {loading? <Spinner size='md'/> : "Register Account"}
               </button>
             </Form>
           )}

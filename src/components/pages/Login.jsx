@@ -303,11 +303,11 @@ const Login = () => {
                type='submit'
                disabled={isSubmitting}
               //  onClick={() => {navigate('/')}}
-               className={` py-2 rounded-3xl transform transition-all bg-violet-950 cursor-pointer ${
+               className={` py-2 rounded-3xl transform transition-all bg-violet-950 cursor-pointer flex justify-center items-center${
                 isSubmitting? 'bg-zinc-700 cursor-not-allowed opacity-80 ' : 'bg-violet-950 hover:bg-violet-900 rounded-3xl'
                }`}
              >
-                   {<Spinner size='sm'/> || "login"}
+                   {loading? <Spinner size='md'/> : "login"}
              </button>
  
            </Form>
