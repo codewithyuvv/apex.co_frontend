@@ -152,7 +152,7 @@ const Home = () => {
   }, { scope: containerRef });
 
   return (
-    <div className='min-h-screen bg-zinc-black text-white overflow-hidden flex flex-col scroll-smooth px-6 ml-12 ' ref={containerRef}>
+    <div className='min-h-screen bg-zinc-black text-white overflow-hidden flex flex-col scroll-smooth ' ref={containerRef}>
 
         <div className="preloader fixed inset-0 bg-black z-9999 flex flex-col items-center justify-center">
             <h1 className="loader-text text-4xl sm:text-6xl font-bold tracking-widest text-white overflow-hidden flex">
@@ -213,7 +213,7 @@ const Home = () => {
       <section className='flex flex-col w-full px-6 py max-w-7xl mx-auto'>
         
         {/* STATS GRID */}
-        <div className='stats-grid grid grid-cols-2 md:grid-cols-4 gap-4 w-full bg-zinc-800/30 rounded-xl p-6 border-t-4 border-violet-600'>
+        <div className='stats-grid grid grid-cols-2 md:grid-cols-4 gap-4 w-full rounded-xl p-6 border-t-4 border-violet-600 bg-violet-900'>
           
           {/* STAT 1 */}
           <div className='stat-box flex flex-col items-center text-center p-4 gap-2'>

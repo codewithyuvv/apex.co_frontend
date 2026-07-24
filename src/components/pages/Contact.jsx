@@ -33,7 +33,7 @@ const Contact = () => {
   }
 
   return (
-    <div ref={containerRef} className=" min-h-screen bg-black text-white px-7 ml-12 md:px-16 py-20 flex items-center overflow-x-hidden">
+    <div ref={containerRef} className=" min-h-screen bg-black text-white px-7 md:px-16 py-20 flex items-center overflow-x-hidden">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         
         {/* Left Column: Copy & Info */}
@@ -77,7 +77,7 @@ const Contact = () => {
         </div>
 
         {/* Right Column: Form */}
-        <div className="bg-zinc-950 border border-zinc-900 p-8 md:p-10 rounded-3xl w-full shadow-2xl relative">
+        <div className="bg-zinc-950 border border-zinc-900 p-6 md:p-10 rounded-3xl w-full shadow-2xl relative">
           <form onSubmit={handleSubmit} className="space-y-6">
             
             {/* Name Input */}

@@ -32,9 +32,11 @@ const AllEvents = () => {
         const fetchEvents = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/event/all-events`)
-                setEvents(response.data.allEvent)
+                // Fall back to [] if allEvent is missing/null so `events` is never undefined
+                setEvents(response?.data?.allEvent || [])
             } catch (error) {
                 console.log("ERROR: ", error.message)
+                setEvents([]) // Keep events as an array even when the request fails
             } finally {
                 setLoading(false)
             }
@@ -43,8 +45,8 @@ const AllEvents = () => {
     }, [])
 
     return (
-        <div className=' min-h-screen p-8 ml-12 md:p-12 text-zinc-100 bg-zinc-950 font-sans selection:bg-indigo-500/30 selection:text-indigo-200'>
-             <Back />
+        <div className=' min-h-screen py-6 px-5 md:p-12 w-full text-zinc-100 bg-zinc-950 font-sans selection:bg-indigo-500/30 selection:text-indigo-200'>
+            <div className='mb-6 md:mx-[]'> <Back /> </div>
             <div className='max-w-7xl mx-auto'>
                 
                 {/* Header Section */}

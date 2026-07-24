@@ -51,11 +51,11 @@ const Login = () => {
   return (
     <div 
       ref={containerRef} 
-      className='bg-zinc-950 flex px-5 ml-17 min-h-screen items-center justify-center p-4 selection:bg-violet-500 selection:text-violet-200'
+      className='bg-zinc-950 flex px-6 min-h-screen items-center justify-center p-4 selection:bg-violet-500 selection:text-violet-200'
     >
       <div className='login-card max-w-4xl w-full bg-zinc-900 border border-zinc-800 backdrop-blur-md flex flex-col md:flex-row justify-between items-stretch rounded-2xl overflow-hidden shadow-2xl shadow-black/50'>
         
-        <div className='w-full md:w-1/2 bg-violet-950 border-b md:border-b-0 md:border-r border-zinc-800/60 p-10 md:p-16 flex flex-col justify-center items-start relative overflow-hidden'>          
+        <div className='hidden w-full md:w-1/2 bg-violet-950 border-b md:border-b-0 md:border-r border-zinc-800/60 p-10 md:p-16 sm:flex flex-col justify-center items-start relative overflow-hidden'>          
           <h1 className='animate-item text-4xl font-bold tracking-tight text-white mb-2'>
             Welcome back
           </h1>
@@ -109,7 +109,7 @@ const Login = () => {
           }}
         >
           {({isSubmitting}) => {
-             return <Form className='w-full md:w-1/2 flex flex-col justify-center p-10 md:p-16 gap-6 bg-zinc-850'>
+             return <Form className='w-full md:w-1/2 flex flex-col justify-center px-3 py-4 md:p-16 gap-6 bg-zinc-850'>
             
              <div className='animate-item w-full flex flex-col gap-2'>
                <label className='text-xs font-semibold tracking-wider text-zinc-400 uppercase pl-1'>

@@ -115,7 +115,7 @@ const About = () => {
 
   return (
     <div className='w-full min-h-screen bg-black text-white ' ref={aboutRef}>
-       <section className='flex flex-col px-9 ml-14 max-w-7xl mx-auto'>
+       <section className='flex flex-col px-5 max-w-7xl mx-auto'>
            <div className='py-10 flex flex-col'>
               <h1 className='title text-2xl tracking-wide md:text-4xl '> Meet the Minds </h1>
               <h1 className='title text-2xl tracking-wide md:text-4xl '> Behind <span className='text-violet-900'>Apex.co</span> </h1>
@@ -160,7 +160,7 @@ const About = () => {
         </div>
        </section>
 
-        <section className='bg-zinc-950 text-white py-16 px-9 ml-14 lg:px-12 min-h-screen flex flex-col justify-center selection:bg-violet-500/30'>
+        <section className='bg-zinc-950 text-white py-16 px-5 lg:px-12 min-h-screen flex flex-col justify-center selection:bg-violet-500/30'>
       <div className='max-w-7xl mx-auto w-full'>
         
         {/* Header Section */}
@@ -196,9 +196,9 @@ const About = () => {
                 <span className='px-2.5 py-1 text-[10px] uppercase tracking-wider font-extrabold text-violet-400 bg-violet-500/10 rounded-full border border-violet-500/20'>
                   Executive Leadership
                 </span>
-                <h2 className='text-3xl font-bold text-white mt-4 tracking-tight'>Alex</h2>
+                <h2 className='text-3xl font-bold text-white mt-4 tracking-tight'>Ashraf</h2>
                 <p className='text-zinc-400 text-sm mt-3 leading-relaxed'>
-                  Guiding organizational growth, strategic engineering alignment, and fostering architectural excellence across global engineering systems.
+                  Guiding organizational growth, strategic creative alignment, and fostering architectural excellence across global engineering systems.
                 </p>
               </div>
             </div>
@@ -242,10 +242,10 @@ const About = () => {
       </div>
        </section>
 
-     <section className='px-9 py-3 ml-14 flex flex-col'>
+     <section className='px-7 py-2 flex flex-col'>
        <h1 className=' tracking-widest font-bold text-violet-800'> Client Testimonials </h1>
 
-       <div className='grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto p-4'>
+       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-4 py-3'>
   {testimonials.map((testimonial, idx) => {
     return (
       // 1. Added a unique key

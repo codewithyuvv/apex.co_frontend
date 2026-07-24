@@ -27,28 +27,28 @@ const Navbar = () => {
     return true
   })
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
 
-      if (
-        currentScrollY > lastScroll.current &&
-        currentScrollY > 0
-      ) {
-        setCollapsed(true);
-      } else {
-        setCollapsed(false);
-      }
+  //     if (
+  //       currentScrollY > lastScroll.current &&
+  //       currentScrollY > 0
+  //     ) {
+  //       setCollapsed(true);
+  //     } else {
+  //       setCollapsed(false);
+  //     }
 
-      lastScroll.current = currentScrollY;
-    };
+  //     lastScroll.current = currentScrollY;
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className="">
