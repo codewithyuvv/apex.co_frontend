@@ -22,7 +22,7 @@ const Navbar = () => {
     if(item.isAdmin) return isAdmin
     if(item.isOrganizer) return isOrganizer
     if(item.isProtected) return isLoggedIn
-    if(isLoggedIn && (item.path === '/login' || item.path === '/register/organizer' || item.path === '/register/volunteer')) return false
+    if(isLoggedIn && (item.path === '/login' || item.path === 'register')) return false
 
     return true
   })
@@ -96,20 +96,54 @@ const Navbar = () => {
         </div>
     } else {
         return (
-          <NavLink
-            key={`Navlinks-${idx}`}
+          // <NavLink
+          //   key={`Navlinks-${idx}`}
+          //   to={route.path}
+          //   className={({ isActive }) =>
+          //     `group relative flex items-center gap-3 rounded-lg py-2.5 text-sm font-medium
+          //      transition-colors duration-200
+          //      ${collapsed ? "justify-center px-0" : "px-3"}
+          //      ${isActive
+          //        ? "bg-violet-800/10 text-violet-700"
+          //        : "text-zinc-400 hover:bg-zinc-800 hover:text-white"}`
+          //   }
+          // >
+          //   {route.icon && <route.icon size={20} className="shrink-0" />}
+          //   {!collapsed && <span className="truncate">{route.name}</span>}
+          // </NavLink>
+
+                    <NavLink
             to={route.path}
             className={({ isActive }) =>
-              `group relative flex items-center gap-3 rounded-lg py-2.5 text-sm font-medium
-               transition-colors duration-200
-               ${collapsed ? "justify-center px-0" : "px-3"}
-               ${isActive
-                 ? "bg-violet-800/10 text-violet-700"
-                 : "text-zinc-400 hover:bg-zinc-800 hover:text-white"}`
+              `group relative flex items-center rounded-lg py-2.5
+               ${collapsed ? "justify-center" : "px-3"}`
             }
           >
-            {route.icon && <route.icon size={20} className="shrink-0" />}
-            {!collapsed && <span className="truncate">{route.name}</span>}
+            <route.icon size={20} />
+          
+            {!collapsed && (
+              <span className="ml-3">{route.name}</span>
+            )}
+          
+            {collapsed && (
+              <div
+                className="
+                absolute left-14
+                opacity-0 group-hover:opacity-100
+                pointer-events-none
+                transition-all duration-200
+                bg-zinc-900
+                border border-zinc-700
+                text-white
+                rounded-lg
+                px-3 py-1.5
+                whitespace-nowrap
+                shadow-xl
+                z-50"
+              >
+                {route.name}
+              </div>
+            )}
           </NavLink>
         );
       }     
@@ -118,27 +152,93 @@ const Navbar = () => {
 
   {/* User / logout */}
   {isLoggedIn && (
-    <div className={`flex items-center gap-2 pt-4 border-t border-zinc-800/60 ${collapsed ? "justify-center" : "px-2"}`}>
-      <div className="h-8 w-8 rounded-full bg-violet-600 flex items-center justify-center text-xs font-semibold shrink-0 cursor-pointer"
-      onClick={() => navigate('/user')}>
-        <img 
-        className="profile h-full w-full rounded-2xl object-cover"
-        src={user?.profileImage}/>
+  <div
+    className={`flex items-center gap-2 pt-4 border-t border-zinc-800/60 ${
+      collapsed ? "justify-center" : "px-2"
+    }`}
+  >
+    {/* Profile */}
+    <div className="relative group">
+      <div
+        className="h-8 w-8 rounded-full bg-violet-600 flex items-center justify-center text-xs font-semibold shrink-0 cursor-pointer overflow-hidden"
+        onClick={() => navigate("/user")}
+      >
+        <img
+          className="h-full w-full object-cover"
+          src={user?.profileImage}
+          alt={user?.name}
+        />
       </div>
-      {!collapsed && (
-        <span className="text-sm text-zinc-300 truncate flex-1 cursor-pointer"
-        onClick={() => navigate('/user')}>{user?.name}</span>
+
+      {collapsed && (
+        <div
+          className="
+            absolute left-12 top-1/2 -translate-y-1/2
+            opacity-0 group-hover:opacity-100
+            group-hover:translate-x-1
+            transition-all duration-200
+            pointer-events-none
+            whitespace-nowrap
+            rounded-lg
+            border border-zinc-700
+            bg-zinc-900
+            px-3 py-1.5
+            text-sm text-white
+            shadow-xl
+            z-50
+          "
+        >
+          {user?.name}
+        </div>
       )}
+    </div>
+
+    {!collapsed && (
+      <span
+        className="text-sm text-zinc-300 truncate flex-1 cursor-pointer"
+        onClick={() => navigate("/user")}
+      >
+        {user?.name}
+      </span>
+    )}
+
+    {/* Logout */}
+    <div className="relative group">
       <Power
         className="text-zinc-500 hover:text-red-400 cursor-pointer shrink-0 transition-colors"
         size={17}
         onClick={logout}
       />
+
+      {collapsed && (
+        <div
+          className="
+            absolute left-8 top-1/2 -translate-y-1/2
+            opacity-0 group-hover:opacity-100
+            group-hover:translate-x-1
+            transition-all duration-200
+            pointer-events-none
+            whitespace-nowrap
+            rounded-lg
+            border border-zinc-700
+            bg-zinc-900
+            px-3 py-1.5
+            text-sm text-white
+            shadow-xl
+            z-50
+          "
+        >
+          Logout
+        </div>
+      )}
     </div>
-  )}
+  </div>
+)}
 </nav>
     </div>
   );
 };
 
 export default Navbar;
+
+

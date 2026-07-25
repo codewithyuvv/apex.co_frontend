@@ -49,13 +49,13 @@ const DashboardVolunteer = () => {
         rejected: 'bg-red-500/20 text-red-400',
     }
 
-    useEffect(() => {
-       const getStats = async () => {
-        const stats = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/stats`, {withCredentials: true})
-         setStats(stats?.data)
-       }
-       getStats()
-    }, [stats])
+    // useEffect(() => {
+    //    const getStats = async () => {
+    //     const stats = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/stats`, {withCredentials: true})
+    //      setStats(stats?.data)
+    //    }
+    //    getStats()
+    // }, [stats])
 
   //   useEffect(() => {
   //     if (!currentUser?._id) return
@@ -80,10 +80,10 @@ const DashboardVolunteer = () => {
     
 
   return (
-    <div className='px-5cls px-6
-     py-3 w-full min-h-screen bg-zinc-800'>
-      <div className='px-15 mb-5 mt-2'><Back /></div> 
-       <div className='ml-17 flex flex-col'>
+    <div className='px-3
+     py-3 w-full h-screen bg-zinc-800'>
+      <div className='px-5 mb-5 mt-2'><Back /></div> 
+       <div className='px-5 flex flex-col'>
         <h1 className='font-semibold text-2xl md:text-3xl '>Hi, {user?.name}</h1>
        <h1 className='font-medium text-md mt-1'> Here's what's happening with your volunteering </h1>
 

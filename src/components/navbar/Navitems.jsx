@@ -45,7 +45,7 @@ export const navItems = [
         icon: ContactIcon 
     },
     {
-        name: 'Register', 
+        name: 'Register', path: 'register', 
         children: [
            { 
             name: 'Organizer',
@@ -150,24 +150,24 @@ export const navItems = [
         isProtected: true,
         isAdmin : false,
     },
-    {
-        path: '/register/organizer',
-        element: <Organizer />,
-        isProtected: false,
-        isAdmin : false,
-    },
+    // {
+    //     path: '/register/organizer',
+    //     element: <Organizer />,
+    //     isProtected: false,
+    //     isAdmin : false,
+    // },
     // {
     //     path: '/register/volunteer',
     //     element: <Register />,
     //     isProtected: false,
     //     isAdmin : false,
     // },
-    {
-        path: '/register/volunteer',
-        element: <Register />,
-        isProtected: false,
-        isAdmin : false,
-    }
+    // {
+    //     path: '/register/volunteer',
+    //     element: <Register />,
+    //     isProtected: false,
+    //     isAdmin : false,
+    // }
     // {
     //     name: 'Explore events',
     //     path: '/all-events',

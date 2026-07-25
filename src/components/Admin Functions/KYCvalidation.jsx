@@ -11,6 +11,7 @@ import {
   ImageOff,
 } from "lucide-react";
 import Spinner from "../../assets/Spinner";
+import Back from "../Global/Back";
 
 const STATUS_META = {
   PENDING: {
@@ -164,6 +165,7 @@ function KYCvalidation() {
   if (!kyc) {
     return (
       <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center gap-3 text-zinc-400">
+      <Back />  
         <FileWarning className="w-10 h-10 text-zinc-600" />
         <p>No KYC submission found for this user.</p>
         <button

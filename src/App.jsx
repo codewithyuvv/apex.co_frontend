@@ -9,6 +9,8 @@ import AdminRoute from './components/Global/AdminRoute'
 import { Toaster } from 'react-hot-toast'
 import MainLayout from './components/Global/MainLayout'
 import OrganizerRoute from './components/Global/OrganizerRoute'
+import RegisterOrganizer from './components/pages/RegisterOrganizer'
+import Register from './components/pages/Register'
 // import Sidebar from './components/navbar/Sidebar'
 // import { Sidebar } from 'lucide-react'
 
@@ -70,6 +72,9 @@ function App() {
       
       
                  <Route path='*' element={<NotFound />}/>
+
+                 <Route path="/register/organizer" element={<RegisterOrganizer />} />
+                 <Route path="/register/volunteer" element={<Register />} />
             
       
                {/* <Footer /> */}

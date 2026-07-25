@@ -6,6 +6,7 @@ import * as Yup from "yup"
 import { useNavigate } from 'react-router-dom'
 import { authContext } from '../Global/AuthProvider'
 import toast from 'react-hot-toast'
+import AxiosInstance from '../../utils/axiosInstance'
 import Spinner from '../../assets/Spinner'
 const Login = () => {
    const {setUser} = useContext(authContext)

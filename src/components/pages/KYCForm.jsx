@@ -5,6 +5,7 @@ import { authContext } from "../Global/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Spinner from "../../assets/Spinner";
+import Back from "../Global/Back";
 
 const validationSchema = Yup.object({
   fullName: Yup.string()
@@ -45,6 +46,7 @@ const validationSchema = Yup.object({
   const [loading, setLoading] = useState(false)
   return (
     <div className="min-h-screen bg-zinc-950 flex justify-center px-5 py-10">
+
 
       <Formik
         initialValues={{
@@ -94,6 +96,8 @@ const validationSchema = Yup.object({
         {({ setFieldValue, isSubmitting }) => (
 
           <Form className="w-full max-w-3xl bg-zinc-900 rounded-2xl border border-zinc-800 p-8 shadow-2xl space-y-6">
+
+<Back />
 
             <div>
               <h1 className="text-3xl font-bold text-white">
@@ -297,7 +301,7 @@ const validationSchema = Yup.object({
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-3 rounded-lg hover:bg-violet-500 transition font-semibold flex justify-center items-center cursor-pointer${
+              className={`w-full py-3 rounded-lg hover:bg-violet-500 bg-violet-600 cursor-pointer transition font-semibold flex justify-center items-center cursor-pointer${
                  loading? "disabled:bg-zinc-500" : "bg-violet-600"
               }`}>
               {loading? <Spinner size="md"/> : "Submit"}
